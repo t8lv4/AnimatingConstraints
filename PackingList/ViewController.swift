@@ -51,6 +51,20 @@ class ViewController: UIViewController {
             if constraint.firstItem === titleLabel && constraint.firstAttribute == .centerX {
                 constraint.constant = isMenuOpen ? -100.0 : 0.0
             }
+
+            if constraint.identifier == "TitleCenterY" {
+                constraint.isActive = false
+
+                let newConstraint = NSLayoutConstraint(item: titleLabel,
+                                                       attribute: .centerY,
+                                                       relatedBy: .equal,
+                                                       toItem: titleLabel.superview,
+                                                       attribute: .centerY,
+                                                       multiplier: 0.67,
+                                                       constant: 0.0)
+                newConstraint.identifier = "TitleCenterY"
+                newConstraint.isActive = true
+            }
         }
 
         menuHeightConstraint.constant = isMenuOpen ? 184.0 : 44.0
