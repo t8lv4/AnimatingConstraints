@@ -22,10 +22,10 @@
 
 import UIKit
 
-//
-// A scroll view, which loads all 10 images, and has a callback
-// for when the user taps on one of the images
-//
+/**
+ A scroll view, which loads all 10 images, and has a callback
+ for when the user taps on one of the images
+ */
 class HorizontalItemList: UIScrollView {
   
   var didSelectItem: ((_ index: Int)->())?
