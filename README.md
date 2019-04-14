@@ -1,1 +1,1 @@
-iOS animations by tutorial, chat. 7
+iOS Animations by Tutorials, chapt. 7
