@@ -46,6 +46,13 @@ class ViewController: UIViewController {
         }
 
         isMenuOpen.toggle()
+
+        titleLabel.superview?.constraints.forEach { constraint in
+            if constraint.firstItem === titleLabel && constraint.firstAttribute == .centerX {
+                constraint.constant = isMenuOpen ? -100.0 : 0.0
+            }
+        }
+
         menuHeightConstraint.constant = isMenuOpen ? 184.0 : 44.0
         titleLabel.text = isMenuOpen ? "Select Item" : "Packing List"
 
