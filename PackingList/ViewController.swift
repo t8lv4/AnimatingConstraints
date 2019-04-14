@@ -40,6 +40,11 @@ class ViewController: UIViewController {
     //MARK: class methods
 
     @IBAction func actionToggleMenu(_ sender: AnyObject) {
+
+        titleLabel.superview?.constraints.forEach { constraint in
+            print("-> \(constraint.description)")
+        }
+
         isMenuOpen.toggle()
         menuHeightConstraint.constant = isMenuOpen ? 184.0 : 44.0
         titleLabel.text = isMenuOpen ? "Select Item" : "Packing List"
@@ -51,7 +56,7 @@ class ViewController: UIViewController {
                        options: .curveEaseIn,
                        animations: {
                         self.view.layoutIfNeeded()
-                        
+
                         let rotationAngle: CGFloat = self.isMenuOpen ? .pi / 4 : 0.0
                         self.buttonMenu.transform = CGAffineTransform(rotationAngle: rotationAngle)
         },
