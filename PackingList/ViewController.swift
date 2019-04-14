@@ -51,8 +51,12 @@ class ViewController: UIViewController {
                        options: .curveEaseIn,
                        animations: {
                         self.view.layoutIfNeeded()
+                        
+                        let rotationAngle: CGFloat = self.isMenuOpen ? .pi / 4 : 0.0
+                        self.buttonMenu.transform = CGAffineTransform(rotationAngle: rotationAngle)
         },
-                       completion: nil)
+                       completion:nil
+        )
     }
 
     func showItem(_ index: Int) {
