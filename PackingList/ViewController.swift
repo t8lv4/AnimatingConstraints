@@ -40,7 +40,6 @@ class ViewController: UIViewController {
     //MARK: class methods
 
     @IBAction func actionToggleMenu(_ sender: AnyObject) {
-
         titleLabel.superview?.constraints.forEach { constraint in
             print("-> \(constraint.description)")
         }
@@ -83,6 +82,19 @@ class ViewController: UIViewController {
         },
                        completion:nil
         )
+
+        if isMenuOpen {
+            slider = HorizontalItemList(inView: view)
+            slider.didSelectItem = { index in
+                print("add \(index)")
+                self.items.append(index)
+                self.tableView.reloadData()
+                self.actionToggleMenu(self)
+            }
+            self.titleLabel.superview?.addSubview(slider)
+        } else {
+            slider.removeFromSuperview()
+        }
     }
 
     func showItem(_ index: Int) {
